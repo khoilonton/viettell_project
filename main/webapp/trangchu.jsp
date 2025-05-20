@@ -1,0 +1,684 @@
+<%-- 
+    Document   : trangchu
+    Created on : May 12, 2025, 8:45:43 PM
+    Author     : TrangTrongKhoi-CE180958
+--%>
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Viettel Demo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/style.css">
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+            }
+        </style>
+        <script src="JS.js"></script>
+        <meta charset="UTF-8">
+
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger shadow-sm px-4">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo (1).png" alt="Viettel" height="40">
+                </a>
+
+                <!-- Menu -->
+                <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
+                    <ul class="navbar-nav d-flex justify-content-center gap-5 mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="trangchu.jsp">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="inter_tv_cam.jsp">Internet - Truyền hình</a></li>
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="camera.jsp">Camera</a></li> 
+                    </ul>
+                </div>
+
+                <!-- Nút menu responsive -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+                       <div
+                    class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-2 ms-lg-5 mt-3 mt-lg-0">
+                    <div class="input-group" style="max-width: 220px;">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                        <span class="input-group-text"><i class="fa fa-search"></i></span>
+                    </div>
+                    <a href="#" class="btn btn-light text-danger fw-bold rounded-pill px-4" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        ĐĂNG NHẬP
+                    </a>
+
+                </div>
+            </div>
+   
+        </nav>
+
+
+
+
+        <!-- Banner -->
+        <main class="responsive border rounded bg-gray">
+            <div class="container mt-4">
+                <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/banner2.jpg" class="d-block w-100" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner.jpg" class="d-block w-100" alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner4.png" class="d-block w-100" alt="Slide 3">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Trước</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Tiếp</span>
+                    </button>
+                </div>
+
+
+
+                
+
+                <div class="container mt-4">
+                    <div class="row g-4">
+                        <div class="col-6 col-md-3">
+                            <div class="service-card">
+                                <img src="img/naptien.png" alt="Nạp tiền">
+                                <p>Nạp tiền / Thanh toán</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="service-card">
+                                <img src="img/chuyendoi.png" alt="Chuyển mạng">
+                                <p>Chuyển mạng giữ số</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="service-card">
+                                <img src="img/5G.png" alt="5G">
+                                <p>Đăng ký 5G</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="service-card">
+                                <img src="img/taikhoan.png" alt="Tài khoản">
+                                <p>Quản lý tài khoản</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                <!-- Ưu đãi hấp dẫn -->
+                <div class="container my-5">
+                    <h4 class="mb-4 fw-bold text-center">Ưu đãi hấp dẫn nhất</h4>
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6">
+                            <div class="shadow rounded overflow-hidden endow ">
+                                <img src="img/trainghiem5g.jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="shadow rounded overflow-hidden endow">
+                                <img src="img/uudai1.jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="shadow rounded overflow-hidden endow">
+                                <img src="img/uudai2 (1).jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="shadow rounded overflow-hidden endow">
+                                <img src="img/uudai3.jpg" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Sản phẩm dịch vụ -->
+                <div class="container mt-5">
+                    <h4 class="mb-3 fw-bold">Sản phẩm dịch vụ đa dạng</h4>
+                    <div class="row g-3">
+                        <div class="col-md-3 endow ">
+                            <img src="img/sp5G.png" width="auto" height="auto" alt="Dịch vụ 1" class="spdv">
+                            <p class="bold-center"> Di động</p>
+                        </div>
+                        <div class="col-md-3 endow ">
+                            <img src="img/spInter.png" width="auto" height="auto" alt="Dịch vụ 2" class="spdv">
+                            <p class="bold-center">Internet - Truyền hình</p>
+                        </div>
+                        <div class="col-md-3 endow">
+                            <img src="img/spCam.png" width="auto" height="auto" alt="Dịch vụ 3" class="spdv">
+                            <p class="bold-center">Camera</p>
+                        </div>
+                        <div class="col-md-3 endow">
+                            <img src="img/spdoanhnghiep.png" width="auto" height="auto" alt="Dịch vụ 4" class="spdv">
+                            <p class="bold-center">Doanh nghiệp</p>
+                        </div>
+                    </div>
+                </div>
+           
+                                <div class="container my-5">
+                                    <h2 class="section-title text-center my-3">Gói cước di động theo nhu cầu</h2>
+                                    <div class="d-flex justify-content-center align-items-center mb-3">
+                                        <div>
+                                            <button class="btn btn-danger tag-btn">Gói cước HOT</button>
+                                            <button class="btn btn-outline-danger tag-btn">Dịch vụ GTGT</button>
+                                            <button class="btn btn-outline-danger tag-btn">Dịch vụ quốc tế</button>
+                                        </div>
+                                    </div>
+
+                    <div id="goiCuocCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <!-- Nút điều hướng trái -->
+                        <button class="carousel-control-prev opacity-50 hover-opacity-100" type="button"
+                                data-bs-target="#goiCuocCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark bg-opacity-50 rounded-circle shadow"
+                                  aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+
+                        <!-- Nút điều hướng phải -->
+                        <button class="carousel-control-next opacity-50 hover-opacity-100" type="button"
+                                data-bs-target="#goiCuocCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-dark bg-opacity-50 rounded-circle shadow"
+                                  aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+
+                        <div class="carousel-inner">
+
+                            <!-- Slide 1 -->
+                            <div class="carousel-item active">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm ">
+                                            <h5 class="text-danger">Gói Cước 4G - 1 ngày</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">10GB 4G tốc độ cao</span>
+                                            </p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 1GB Youtube <span class="icon">📺</span>
+                                            </p>
+                                            <div class="price mb-3 text-danger fw-bold">30.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm">
+                                            <h5 class="text-danger">Gói Cước 3G - 1 ngày</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">8GB 3G tốc độ cao</span>
+                                            </p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 500MB Facebook <span
+                                                    class="icon"></span>
+                                            </p>
+                                            <div class="price mb-3 text-danger fw-bold">20.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm">
+                                            <h5 class="text-danger">Gói Cước 5G - 1 ngày</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">15GB 5G tốc độ cực
+                                                    nhanh</span>
+                                            </p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 1GB TikTok <span class="icon">🎵</span>
+                                            </p>
+                                            <div class="price mb-3 text-danger fw-bold">50.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm">
+                                            <h5 class="text-danger">Gói Cước 7 ngày</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">30GB 4G</span></p>
+                                            <p class="text-nowrap"><strong>🎁 Ưu đãi:</strong> Miễn phí 3GB Facebook + 2GB
+                                                Youtube</p>
+                                            <div class="price mb-3 text-danger fw-bold">100.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm">
+                                            <h5 class="text-danger">Gói Cước 30GB - 1 tuần</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">50GB 3G</span></p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 500MB Instagram</p>
+                                            <div class="price mb-3 text-danger fw-bold">150.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm">
+                                            <h5 class="text-danger">Gói Cước 5GB - 1 tuần</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">5GB 4G</span></p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 2GB Tiktok</p>
+                                            <div class="price mb-3 text-danger fw-bold">80.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="carousel-item">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm">
+                                            <h5 class="text-danger">Gói Cước 10GB - 3 ngày</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">10GB tốc độ cao</span></p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 1GB Tiktok</p>
+                                            <div class="price mb-3 text-danger fw-bold">40.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger rounded-5 shadow-sm">
+                                            <h5 class="text-danger">Gói Cước 3GB - 1 ngày</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">3GB tốc độ cao</span></p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 500MB Facebook</p>
+                                            <div class="price mb-3 text-danger fw-bold">15.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="package-card p-4 border-danger  rounded-5 shadow-sm ">
+                                            <h5 class="text-danger">Gói Cước 1GB - 1 ngày</h5>
+                                            <p><strong>📶 Data:</strong> <span class="text-dark">1GB tốc độ cao</span></p>
+                                            <p><strong>🎁 Ưu đãi:</strong> Miễn phí 200MB Tiktok</p>
+                                            <div class="price mb-3 text-danger fw-bold">10.000đ</div>
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger">Đăng ký</button>
+                                                <a href="#" class="text-danger text-decoration-none">Xem chi tiết &gt;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="text-center mt-3 ">
+                            <a href="#" class="text-danger text-decoration-none">Xem tất cả &gt;</a>
+                        </div>
+                    </div>
+                --%>
+                <div class="container mt-5">
+                    <h4 class="mb-4 fw-bold text-danger text-center">Sim đẹp phủ sóng toàn quốc</h4>
+                    <div class="row align-items-center">
+                        <!-- Ảnh bên trái -->
+                        <div class="col-md-6">
+                            <img src="img/simdata.png" class="img-fluid rounded shadow-sm" alt="Sim Data">
+                        </div>
+
+                        <!-- Hai ảnh bên phải -->
+                        <div class="col-md-6">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <img src="img/chuyentraonl.jpg" class="img-fluid rounded shadow-sm"
+                                         style="height: 190px; object-fit: cover;">
+                                </div>
+                                <div class="col-12">
+                                    <img src="img/simsodep.png" class="img-fluid rounded shadow-sm"
+                                         style="height: 190px; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="container mt-5">
+                    <h4 class="fw-bold mb-3 text-center my-3">Chương trình CSKH - Viettel++</h4>
+                    <div id="viettelCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row text-center">
+                                    <div class="col-md-4">
+                                        <img src="img/CSKH1.jpg" class="img-fluid" alt="">
+                                        <p class="mt-2">Tích điểm trải nghiệm tiện ích...</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="img/CSKH2.jpg" class="img-fluid" alt="">
+                                        <p class="mt-2">Dùng điểm đổi gói cước, voucher...</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="img/CSKH3.jpg" class="img-fluid" alt="">
+                                        <p class="mt-2">Tặng người thân, tiêu dùng dễ dàng...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Thêm các carousel-item nếu cần -->
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#viettelCarousel"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#viettelCarousel"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="container mt-5">
+                    <h3 class="fw-bold mb-4 text-center text-danger">
+                        <a href="link-cua-ban" class="text-decoration-none text-danger">
+                            Tin tức mới nhất <span class="text-danger">&gt;</span>
+                        </a>
+                    </h3>
+
+                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                        <!-- Tin 1 -->
+                        <div class="col">
+                            <div class="card h-100 border-0">
+                                <div class="img-container">
+                                    <img src="img/tin1.jpg" class="card-img-top rounded zoom-img" alt="Tin 1">
+                                </div>
+                                <div class="card-body px-0">
+                                    <p class="text-danger fw-bold mb-1">Tin khuyến mại<br>22/04/2025</p>
+                                    <h6 class="card-title fw-bold mb-2">Giảm giá 5% khi mua gói đa chu kỳ qua Cổng thanh
+                                        toán...</h6>
+                                    <small class="text-muted">Thứ ba, 22/04/2025</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tin 2 -->
+                        <div class="col">
+                            <div class="card h-100 border-0">
+                                <div class="img-container">
+                                    <img src="img/tin2.jpg" class="card-img-top rounded zoom-img" alt="Tin 2">
+                                </div>
+                                <div class="card-body px-0">
+                                    <p class="text-danger fw-bold mb-1">Tin My Viettel<br>18/04/2025</p>
+                                    <h6 class="card-title fw-bold mb-2">My Viettel 7.18 - Nâng cấp tính năng, trải
+                                        nghiệm đột phá</h6>
+                                    <small class="text-muted">Thứ sáu, 18/04/2025</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tin 3 -->
+                        <div class="col">
+                            <div class="card h-100 border-0">
+                                <div class="img-container">
+                                    <img src="img/tin3.jpg" class="card-img-top rounded zoom-img" alt="Tin 3">
+                                </div>
+                                <div class="card-body px-0">
+                                    <p class="text-danger fw-bold mb-1">Tin khuyến mại<br>18/04/2025</p>
+                                    <h6 class="card-title fw-bold mb-2">Nhận đến 30.000 điểm Viettel++ khi hòa mạng mới
+                                        hoặc...</h6>
+                                    <small class="text-muted">Thứ sáu, 18/04/2025</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tin 4 -->
+                        <div class="col">
+                            <div class="card h-100 border-0">
+                                <div class="img-container">
+                                    <img src="img/tin4.jpg" class="card-img-top rounded zoom-img" alt="Tin 4">
+                                </div>
+                                <div class="card-body px-0">
+                                    <p class="text-danger fw-bold mb-1">Tin My Viettel<br>15/04/2025</p>
+                                    <h6 class="card-title fw-bold mb-2">Tặng 4 tháng trải nghiệm GrabUnlimited khi mua
+                                        gói cước...</h6>
+                                    <small class="text-muted">Thứ ba, 15/04/2025</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="container mt-5">
+                    <h4 class="fw-bold mb-3 text-center text-danger">Tiện ích số được ưa thích</h4>
+                    <div class="row justify-content-center">
+                        <!-- Tin 1 -->
+                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card p-3 h-100">
+                                <img src="img/ua1.png" alt="ua1" width="75" class="mb-2">
+                                <h6 class="fw-bold fs-5 text-start">My Viettel</h6>
+                                <p class="text-start fs-6">Quản lý tài khoản, đăng ký gói dễ dàng.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tin 2 -->
+                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card p-3 h-100">
+                                <img src="img/ua2.png" alt="ua2" width="75" class="mb-2">
+                                <h6 class="fw-bold fs-5 text-start">TV360</h6>
+                                <p class="text-start fs-6">Nền tảng kỹ thuật số đặc sắc số 1 Việt Nam</p>
+                            </div>
+                        </div>
+
+                        <!-- Tin 3 -->
+                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-4">
+                            <div class="card p-3 h-100">
+                                <img src="img/ua3.png" alt="ua3" width="75" class="mb-2">
+                                <h6 class="fw-bold fs-5 text-start">Imuzik</h6>
+                                <p class="text-start fs-6">Kho nhạc chờ phong phú trong và ngoài nước.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container mt-5">
+                    <h3 class="fw-bold mb-3 text-center">
+                        <a href="#" class="text-decoration-none text-dark">
+                            My Viettel: Một click - Ngàn tiện ích
+                        </a>
+                    </h3>
+
+                    <div class="d-flex justify-content-center">
+                        <div class="ratio ratio-16x9 rounded-5" style="width: 70%;">
+                            <video class="rounded-5 w-100 h-100" controls>
+                                <source src="img/3 sdt.mp4" type="video/mp4">
+                                Trình duyệt của bạn không hỗ trợ video.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="container mt-5">
+
+                </div>
+                <div class="container mt-5">
+                    <h2 class="fw-bold mb-5 text-center">Bạn cần trợ giúp?</h2>
+                    <div class="row text-center g-3">
+                        <div class="col-12 col-md">
+                            <img src="img/tro1.png" alt="ua3" width="75">
+                            <div class="p-2 border rounded">Giới thiệu Viettel</div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <img src="img/tro2.png" alt="ua3" width="75">
+                            <div class="p-2 border rounded">Chất lượng dịch vụ</div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <img src="img/tro3.png" alt="ua3" width="75">
+                            <div class="p-2 border rounded">Câu hỏi thường gặp</div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <img src="img/tro4.png" alt="ua3" width="75">
+                            <div class="p-2 border rounded">Video hướng dẫn</div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <img src="img/tro5.png" alt="ua3" width="75">
+                            <div class="p-2 border rounded">Tìm kiếm cửa hàng</div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <img src="img/tro6.png" alt="ua3" width="75">
+                            <div class="p-2 border rounded">Phản ánh góp ý</div>
+                        </div>
+                        <div class="col-12 col-md">
+                            <img src="img/tro7.png" alt="ua3" width="75">
+                            <div class="p-2 border rounded">Chat với CSKH</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đăng nhập -->
+                <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 shadow">
+                            <div class="card border-0">
+                                <div class="card-header bg-danger bg-gradient text-white text-center py-3">
+                                    <h5 class="mb-0 fw-semibold">ĐĂNG NHẬP</h5>
+                                </div>
+                                <div class="card-body p-4">
+                                    <form class="needs-validation" novalidate>
+                                        <div class="form-floating mb-3">
+                                            <input type="tel" class="form-control" id="phone"
+                                                   placeholder="Số điện thoại" required>
+                                            <label for="phone"><i class="bi bi-telephone-fill me-1"></i>Số điện
+                                                thoại</label>
+                                            <div class="invalid-feedback">Vui lòng nhập số điện thoại hợp lệ.</div>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="password"
+                                                   placeholder="Mật khẩu / Mã OTP" required>
+                                            <label for="password"><i class="bi bi-shield-lock-fill me-1"></i>Mật khẩu /
+                                                Mã OTP</label>
+                                            <div class="invalid-feedback">Vui lòng nhập mật khẩu / OTP.</div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-3 small">
+                                            <a href="#" class="link-danger"
+                                               onclick="event.preventDefault();alert('Mã OTP đã được gửi!')">Lấy mã
+                                                OTP</a>
+                                            <a href="#" class="link-danger">Quên mật khẩu</a>
+                                        </div>
+                                        <button class="btn btn-danger w-100" type="submit">Đăng nhập</button>
+                                    </form>
+
+                                    <div class="text-center my-3">
+                                        <span class="small text-secondary">hoặc</span>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center gap-2 mb-3">
+                                        <button class="btn btn-outline-danger rounded-circle p-0"
+                                                style="width:46px;height:46px;" aria-label="Facebook">
+                                            <img src="img/face.png" class="w-100 h-100 p-2" alt="Facebook">
+                                        </button>
+                                        <button class="btn btn-outline-danger rounded-circle p-0"
+                                                style="width:46px;height:46px;" aria-label="Google">
+                                            <img src="img/gmail.png" class="w-100 h-100 p-2" alt="Google">
+                                        </button>
+                                        <button class="btn btn-outline-danger rounded-circle p-0"
+                                                style="width:46px;height:46px;" aria-label="Apple">
+                                            <img src="img/zalo.png" class="w-100 h-100 p-2" alt="Apple">
+                                        </button>
+                                        <button class="btn btn-outline-danger rounded-circle p-0"
+                                                style="width:46px;height:46px;" aria-label="QR"
+                                                onclick="event.preventDefault();alert('Quét QR trên ứng dụng MyViettel');">
+                                            <img src="img/instagram.png" class="w-100 h-100 p-2" alt="QR">
+                                        </button>
+                                    </div>
+
+                                    <p class="text-center small mb-0">Chưa có tài khoản? <a href="dangky.html"
+                                                                                            class="link-danger fw-semibold">Đăng ký</a></p>
+                                    <p class="text-center small"><a href="#" class="link-danger">Điều khoản & Chính
+                                            sách</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container mx-auto px-4" style="max-width: 1140px;">
+            <div class="row align-items-start">
+                <!-- Giới thiệu -->
+                <div class="col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold text-info">Giới Thiệu</h5>
+                    <p class="text-light text-justify" style="line-height: 1.8;">
+                        Gói cước Viettel - Cổng đăng ký các gói 4G, 5G nhanh chóng, tiện lợi. Truy cập dễ dàng, hỗ trợ khách hàng 24/7, mang lại trải nghiệm kết nối tốt nhất cho bạn.
+                    </p>
+                </div>
+
+                <!-- Liên hệ -->
+                <div class="col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold text-info">Liên Hệ</h5>
+                    <p class="text-light text-justify" style="line-height: 1.8;">
+                        210 Trần Phú, Cái Khế, Ninh Kiều, Cần Thơ
+                    </p>
+                    <p class="text-light" style="line-height: 1.8;">
+                        SÐT: 086.5693.959
+                    </p>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between text-center text-md-start pt-2">
+                <div class="mb-2 mb-md-0">
+                    © 2025 <span class="text-danger">Khoibh@viettelpost.com.vn</span> - All Rights Reserved
+                </div>
+                <div>
+                    Tập Đoàn Công Nghiệp - Viễn Thông Quân Đội Viettel
+                </div>
+            </div>
+        </div>
+    </footer>
+

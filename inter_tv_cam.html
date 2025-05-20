@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Viettel - Internet TV Camera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .top-nav {
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .login-btn {
+            background-color: #e60000;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .breadcrumb {
+            background: #fff;
+            padding: 10px 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 30px;
+            background: #f2f2f2;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-item {
+            width: 22%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #c4001a, #e60000);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            margin: 20px 30px;
+            flex-wrap: wrap;
+        }
+
+        .plan-card {
+            background-color: #fff;
+            border-radius: 16px;
+            padding: 24px 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan-header {
+            background-color: #d90d25;
+            color: white;
+            padding: 12px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .camera-img {
+            max-height: 130px;
+            object-fit: contain;
+        }
+
+        .plan-body {
+            padding: 16px;
+            height: 200px;
+            overflow-y: auto;
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .plan-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-detail {
+            margin-top: 12px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .box-left {
+            max-width: 50%;
+        }
+
+        .box-left h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .box-left img {
+            width: 150px;
+        }
+
+        .box-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 45%;
+        }
+
+        .feature {
+            background: #b80000;
+            padding: 15px 20px;
+            border-radius: 10px;
+            flex: 1 1 45%;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-item {
+                width: 90%;
+            }
+
+            .highlight-box {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .box-left,
+            .box-right {
+                max-width: 100%;
+            }
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .package-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-header {
+            background-color: #d10029;
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .btn-custom {
+            background-color: #d10029;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #a70021;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            /* Giảm chiều rộng nút điều hướng */
+            top: 35%;
+            /* Căn giữa chiều dọc */
+            bottom: auto;
+            transform: translateY(-50%);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            z-index: 2;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        .carousel-inner {
+            padding: 0 2rem;
+            /* Giúp tránh nút đè lên card */
+        }
+
+        .carousel-control-prev {
+            left: -30px;
+        }
+
+        .carousel-control-next {
+            right: -30px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-body-secondary">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger shadow-sm px-4">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo (1).png" alt="Viettel" height="40">
+                </a>
+
+                <!-- Menu -->
+                <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
+                    <ul class="navbar-nav d-flex justify-content-center gap-5 mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="trangchu.html">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="inter_tv_cam.html">Internet -
+                                Truyền hình</a></li>
+                        <li class="nav-item"><a class="nav-link text-white fw-bold" href="camera.html">Camera</a></li>
+                    </ul>
+                </div>
+
+                <!-- Nút menu responsive -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div
+                class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-2 ms-lg-5 mt-3 mt-lg-0">
+                <div class="input-group" style="max-width: 220px;">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                </div>
+                <a href="#" class="btn btn-light text-danger fw-bold rounded-pill px-4" data-bs-toggle="modal"
+                    data-bs-target="#loginModal">
+                    ĐĂNG NHẬP
+                </a>
+
+            </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- breadcrumb-->
+    <nav aria-label="breadcrumb" style="background-color: #f8f9fa; padding: 10px 15px; border-radius: 5px;">
+        <ol class="breadcrumb mb-0" style="margin-bottom: 0;">
+            <li class="breadcrumb-item">
+                <a href="trangchu.html" style="text-decoration: none; color: #212529;">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" style="color: #e50914; font-weight: bold;">
+                Internet-TV-Camera
+            </li>
+        </ol>
+    </nav>
+
+
+    <section class="services">
+        <div class="service-item">
+            <a href="internet_truyenhinh.html"> <img src="img/codinh1.png" alt="Internet"></a>
+            <h3>Internet</h3>
+            <p>Với hệ thống các gói cước Internet đa dạng đáp ứng nhu cầu sử dụng của người dùng.</p>
+        </div>
+        <div class="service-item">
+            <a href="tv360.html"><img src="img/codinh2.png" alt="TV360"></a>
+            <h3>TV360</h3>
+            <p>Mang cả thế giới giải trí đến ngôi nhà của bạn.</p>
+        </div>
+        <div class="service-item">
+            <a href="camera.html"> <img src="img/codinh3.png" alt="Camera"></a>
+            <h3>Camera</h3>
+            <p>Trang bị camera giám sát cho ngôi nhà của bạn.</p>
+        </div>
+
+    </section>
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4 text-danger">Danh sách gói Internet - Truyền hình</h2>
+        <div class="d-flex justify-content-center gap-2 mb-4">
+            <button class="btn tab-button active">Gói Internet</button>
+            <button class="btn tab-button">Gói truyền hình</button>
+            <button class="btn tab-button">Gói combo Internet - Truyền hình</button>
+        </div>
+
+        <!-- goi internet-->
+        <div id="packageCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- GOi INTERNET-->
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Gói 1 -->
+                        <div class="bg-white package-card h-100 shadow-sm rounded-4 border">
+                            <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                NETVT1
+                            </div>
+                            <div class="p-4">
+                                <p class="mb-2 fw-bold fs-6">
+                                    <i class="bi bi-speedometer2 me-2 text-danger"></i>Tốc độ: 300 Mbps
+                                </p>
+                                <p class="price text-danger fs-4 fw-bold">
+                                    180.000đ <span class="fs-6 fw-normal text-muted">/tháng</span>
+                                </p>
+                                <ul class="list-unstyled small mb-4">
+                                    <li><i class="bi bi-geo-alt text-danger me-2"></i>Áp dụng tại 61 Tỉnh và ngoại thành
+                                        HNI,
+                                        HCM</li>
+                                    <li><i class="bi bi-gift text-danger me-2"></i>Tặng 1 tháng cước khi đóng cước trước
+                                        12
+                                        tháng.</li>
+                                </ul>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-danger rounded-pill">Đăng ký</button>
+                                    <a class="btn btn-outline-danger rounded-pill" href="gt_vt1.html">Chi tiết gói
+                                        cước</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gói 2 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100">
+                                <div class="bg-white package-card h-100 shadow-sm rounded-4 border">
+                                    <div
+                                        class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                        NETVT2
+                                    </div>
+                                    <div class="p-4">
+                                        <p class="mb-2 fw-bold fs-6">
+                                            <i class="bi bi-speedometer2 me-2 text-danger"></i>Tốc độ: Từ 500 Mbps
+                                        </p>
+                                        <p class="price text-danger fs-4 fw-bold">
+                                            240.000đ <span class="fs-6 fw-normal text-muted">/tháng</span>
+                                        </p>
+                                        <ul class="list-unstyled small mb-4">
+                                            <li><i class="bi bi-geo-alt text-danger me-2"></i>Áp dụng tại Nội thành HNI,
+                                                HCM.</li>
+                                            <li><i class="bi bi-gift text-danger me-2"></i>Tặng 1 tháng cước khi đóng
+                                                cước trước 12
+                                                tháng.</li>
+                                        </ul>
+                                        <div class="d-grid gap-2">
+                                            <button class="btn btn-danger rounded-pill">Đăng ký</button>
+                                            <button class="btn btn-outline-danger rounded-pill">Chi tiết gói
+                                                cước</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gói 3 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100 shadow-sm rounded-4 border">
+                                <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                    MESHVT1
+                                </div>
+                                <div class="p-4">
+                                    <p class="mb-2 fw-bold fs-6">
+                                        <i class="bi bi-speedometer2 me-2 text-danger"></i>Tốc độ: 300 Mbps
+                                    </p>
+                                    <p class="price text-danger  fs-4 fw-bold ">210.000đ<span
+                                            class="fs-6 fw-normal text-muted">/tháng</span></p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li><i class="bi bi-geo-alt text-danger me-2"></i>Áp dụng tại 61 Tỉnh và ngoại
+                                            thành HNI,
+                                            HCM</li>
+                                        <li><i class="bi bi-gift text-danger me-2"></i>Tặng 1 tháng cước khi đóng cước
+                                            trước 12
+                                            tháng.</li>
+                                    </ul>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-danger rounded-pill">Đăng ký</button>
+                                        <a class="btn btn-outline-danger rounded-pill" href="gt_mesvt1.html">Chi tiết
+                                            gói cước</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Gói 4 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100 shadow-sm rounded-4 border">
+                                <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                    MESHVT2
+                                </div>
+                                <div class="p-4">
+                                    <p class="mb-2 fw-bold fs-6">
+                                        <i class="bi bi-speedometer2 me-2 text-danger"></i>Tốc độ: Từ 500 Mbps
+                                    </p>
+                                    <p class="price text-danger fs-4 fw-bold">
+                                        245.000đ <span class="fs-6 fw-normal text-muted">/tháng</span>
+                                    </p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li><i class="bi bi-geo-alt text-danger me-2"></i>Áp dụng tại Nội thành HNI,
+                                            HCM.</li>
+                                        <li><i class="bi bi-gift text-danger me-2"></i>Tặng 1 tháng cước khi đóng cước
+                                            trước 12 tháng.</li>
+                                    </ul>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-danger rounded-pill">Đăng ký</button>
+                                        <button class="btn btn-outline-danger rounded-pill">Chi tiết gói cước</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gói 5 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100 shadow-sm rounded-4 border">
+                                <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                    MESHVT3
+                                </div>
+                                <div class="p-4">
+                                    <p class="mb-2 fw-bold fs-6">
+                                        <i class="bi bi-speedometer2 me-2 text-danger"></i>Tốc độ: Từ 500 Mbps
+                                    </p>
+                                    <p class="price text-danger fs-4 fw-bold">
+                                        299.000đ <span class="fs-6 fw-normal text-muted">/tháng</span>
+                                    </p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li><i class="bi bi-geo-alt text-danger me-2"></i>Áp dụng tại Nội thành HNI,
+                                            HCM.</li>
+                                        <li><i class="bi bi-gift text-danger me-2"></i>Tặng 1 tháng cước khi đóng cước
+                                            trước 12 tháng.</li>
+                                    </ul>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-danger rounded-pill">Đăng ký</button>
+                                        <button class="btn btn-outline-danger rounded-pill">Chi tiết gói cước</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gói 6 (placeholder hoặc thêm gói mới) -->
+                        <div class="col">
+                            <!-- thêm gói mới ở đây nếu muốn -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#packageCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark "></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#packageCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark"></span>
+            </button>
+        </div>
+    </div>
+
+
+    <!--truyen hinh-->
+    <div id="tvCarousel" class="carousel slide d-none tv-packages" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+                    <!-- Gói 1 -->
+                    <div class="col">
+                        <div class="bg-white h-100 shadow-sm rounded-4 border">
+                            <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                GIẢi TRÍ
+                            </div>
+                            <div class="p-4">
+                                <p class="fw-bold fs-5">160 kênh truyền hình</p>
+                                <ul class="list-unstyled small text-muted mb-4">
+                                    <li>Xem đồng thời 2 thiết bị</li>
+                                    <li>Cài đặt trên Smart TV</li>
+                                    <li>Tặng 1 tháng cước khi đóng cước trước 12 tháng</li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">40.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100 rounded-pill" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gói 2 -->
+                    <div class="col">
+                        <div class="bg-white h-100 shadow-sm rounded-4 border">
+                            <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                GIẢi TRÍ BOX
+                            </div>
+                            <div class="p-4">
+                                <p class="fw-bold fs-5">100 kênh truyền hình</p>
+                                <ul class="list-unstyled small text-muted mb-4">
+                                    <li>Xem đồng thời 2 thiết bị</li>
+                                    <li>Đầu thu Set-top-box TV360</li>
+                                    <li>Tặng 1 tháng cước khi đóng cước trước 12 tháng</li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">40.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100 rounded-pill" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gói 3 -->
+                    <div class="col">
+                        <div class="bg-white h-100 shadow-sm rounded-4 border">
+                            <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                ĐẲNG CẤP
+                            </div>
+                            <div class="p-4">
+                                <p class="fw-bold fs-5">160 kênh truyền hình</p>
+                                <ul class="list-unstyled small text-muted mb-4">
+                                    <li>Xem đồng thời 2 thiết bị</li>
+                                    <li>Cài đặt trên Smart TV</li>
+                                    <li>Tặng 1 tháng cước khi đóng cước trước 12 tháng</li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">50.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100 rounded-pill" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+                    <!-- Gói 4 -->
+                    <div class="col">
+                        <div class="bg-white h-100 shadow-sm rounded-4 border">
+                            <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                ĐẲNG CẤP
+                            </div>
+                            <div class="p-4">
+                                <p class="fw-bold fs-5">160 kênh truyền hình</p>
+                                <ul class="list-unstyled small text-muted mb-4">
+                                    <li>Xem đồng thời 2 thiết bị</li>
+                                    <li>Cài đặt trên Smart TV</li>
+                                    <li>Tặng 1 tháng cước khi đóng cước trước 12 tháng</li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">50.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100 rounded-pill" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gói 5 -->
+                    <div class="col">
+                        <div class="bg-white h-100 shadow-sm rounded-4 border">
+                            <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                ĐẲNG CẤP BOX
+                            </div>
+                            <div class="p-4">
+                                <p class="fw-bold fs-5">100 kênh truyền hình</p>
+                                <ul class="list-unstyled small text-muted mb-4">
+                                    <li>Xem đồng thời 2 thiết bị</li>
+                                    <li>Đầu thu Set-top-box TV360</li>
+                                    <li>Tặng 1 tháng cước khi đóng cước trước 12 tháng</li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">50.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100 rounded-pill" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gói 6 -->
+                    <div class="col">
+                        <div class="bg-white h-100 shadow-sm rounded-4 border">
+                            <div class="package-header text-center py-3 fw-bold text-white bg-danger rounded-top-4">
+                                ĐẲNG CẤP
+                            </div>
+                            <div class="p-4">
+                                <p class="fw-bold fs-5">160 kênh truyền hình</p>
+                                <ul class="list-unstyled small text-muted mb-4">
+                                    <li>Xem đồng thời 2 thiết bị</li>
+                                    <li>Cài đặt trên Smart TV</li>
+                                    <li>Tặng 1 tháng cước khi đóng cước trước 12 tháng</li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">50.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100 rounded-pill" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#tvCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#tvCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+        </button>
+    </div>
+
+
+    <!--goi combo-->
+    <div id="comboCarousel" class="carousel slide d-none combo-packages" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+                    <!-- Gói 1 -->
+                    <div class="col">
+                        <div class="bg-white package-card h-100">
+                            <div class="package-header">NETVT1T_GIAITRI</div>
+                            <div class="p-3">
+                                <p class="fw-bold">300 Mbps</p>
+                                <ul class="list-unstyled small mb-4">
+                                    <li>
+                                        <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI, HCM.
+                                    </li>
+                                    <li>
+                                        <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước trước
+                                        12
+                                        tháng.
+                                    </li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">200.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gói 2 -->
+                    <div class="col">
+                        <div class="bg-white package-card h-100">
+                            <div class="package-header"> NETVT1T_GIAITRIBOX</div>
+                            <div class="p-3">
+                                <p class="fw-bold">300 Mbps</p>
+                                <ul class="list-unstyled small mb-4">
+                                    <li>
+                                        <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI, HCM.
+                                    </li>
+                                    <li>
+                                        <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước trước
+                                        12
+                                        tháng.
+                                    </li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">220.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gói 3 -->
+                    <div class="col">
+                        <div class="bg-white package-card h-100">
+                            <div class="package-header"> NETVT1T_DANGCAP</div>
+                            <div class="p-3">
+                                <p class="fw-bold">300 Mbps</p>
+                                <ul class="list-unstyled small mb-4">
+                                    <li>
+                                        <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI, HCM.
+                                    </li>
+                                    <li>
+                                        <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước trước
+                                        12
+                                        tháng.
+                                    </li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">230.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="row row-cols-1 row-cols-md-3 g-3">
+                    <!-- Gói 4 -->
+                    <div class="col">
+                        <div class="bg-white package-card h-100">
+                            <div class="package-header"> NETVT2T_GIAITRI</div>
+                            <div class="p-3">
+                                <p class="fw-bold">từ 500 Mbps</p>
+                                <ul class="list-unstyled small mb-4">
+                                    <li>
+                                        <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI, HCM.
+                                    </li>
+                                    <li>
+                                        <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước trước
+                                        12
+                                        tháng.
+                                    </li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">260.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Gói 5 -->
+                    <div class="col">
+                        <div class="bg-white package-card h-100">
+                            <div class="package-header"> NETVT2H_GIAITRIBOX</div>
+                            <div class="p-3">
+                                <p class="fw-bold"> từ 500Mbps Mbps</p>
+                                <ul class="list-unstyled small mb-4">
+                                    <li>
+                                        <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI, HCM.
+                                    </li>
+                                    <li>
+                                        <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước trước
+                                        12
+                                        tháng.
+                                    </li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">305.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Gói 6-->
+                    <div class="col">
+                        <div class="bg-white package-card h-100">
+                            <div class="package-header"> MESHVT1H_GIAITRI</div>
+                            <div class="p-3">
+                                <p class="fw-bold">300 Mbps</p>
+                                <ul class="list-unstyled small mb-4">
+                                    <li>
+                                        <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI, HCM.
+                                    </li>
+                                    <li>
+                                        <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước trước
+                                        12
+                                        tháng.
+                                    </li>
+                                </ul>
+                                <p class="fw-bold text-danger fs-5">275.000đ/tháng</p>
+                                <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#comboCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark "></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#comboCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark"></span>
+        </button>
+    </div>
+
+    </div>
+
+
+
+    <!-- danh sach camera-->
+    <div class="container py-5">
+        <h2 class="text-center mb-4 text-danger">Trang bị Camera giám sát cho ngôi nhà của bạn</h2>
+        <div class="d-flex justify-content-center gap-2 mb-4">
+            <button class="btn camera-tab-button active">Gói lưu trữ Cloud</button>
+            <button class="btn camera-tab-button">Gói combo internet - Camera </button>
+            <button class="btn camera-tab-button">Thiết bị camera</button>
+        </div>
+        <div id="cameraCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Gói 7 NGÀY -->
+                        <div class="col-md-4">
+                            <div class="plan-card text-center">
+                                <div class="plan-header">CAMERA CL7</div>
+                                <div class="plan-body text-start">
+                                    <p><strong>Lưu trữ dữ liệu:</strong> 7 ngày</p>
+                                    <ul>
+                                        <li>Áp dụng trên Toàn quốc.</li>
+                                        <li>Lắp đặt nhanh chóng, chăm sóc và hỗ trợ Khách hàng 24/7.</li>
+                                        <li>Đăng ký dễ dàng, tiện lợi qua tổng đài hoặc ứng dụng MyViettel.</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-price">40.000đ/tháng</div>
+                                <button class="btn btn-outline-dark btn-detail">Xem chi tiết</button>
+                            </div>
+                        </div>
+                        <!-- Gói 15 NGÀY  -->
+                        <div class="col-md-4">
+                            <div class="plan-card text-center">
+                                <div class="plan-header">CAMERA CL15</div>
+                                <div class="plan-body text-start">
+                                    <p><strong>Lưu trữ dữ liệu:</strong> 15 ngày</p>
+                                    <ul>
+                                        <li>Áp dụng trên Toàn quốc.</li>
+                                        <li>Lắp đặt nhanh chóng, chăm sóc và hỗ trợ Khách hàng 24/7.</li>
+                                        <li>Đăng ký dễ dàng, tiện lợi qua tổng đài hoặc ứng dụng MyViettel.</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-price">60.000đ/tháng</div>
+                                <button class="btn btn-outline-dark btn-detail">Xem chi tiết</button>
+                            </div>
+                        </div>
+                        <!-- Gói 30 NGÀY -->
+                        <div class="col-md-4">
+                            <div class="plan-card text-center">
+                                <div class="plan-header">CAMERA CL30</div>
+                                <div class="plan-body text-start">
+                                    <p><strong>Lưu trữ dữ liệu:</strong> 30 ngày</p>
+                                    <ul>
+                                        <li>Áp dụng trên Toàn quốc.</li>
+                                        <li>Lắp đặt nhanh chóng, chăm sóc và hỗ trợ Khách hàng 24/7.</li>
+                                        <li>Đăng ký dễ dàng, tiện lợi qua tổng đài hoặc ứng dụng MyViettel.</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-price">90.000đ/tháng</div>
+                                <button class="btn btn-outline-dark btn-detail">Xem chi tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Gói combo internet - Camera -->
+        <div id="comboCamCarousel" class="carousel slide d-none comboCam-packages" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Gói 1 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100">
+                                <div class="package-header"> NETVT1T_CAM7</div>
+                                <div class="p-3">
+                                    <p class="fw-bold">Tốc độ 350Mbps + 7 ngày lưu trữ</p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li>
+                                            <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI,
+                                            HCM.
+                                        </li>
+                                        <li>
+                                            <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước
+                                            trước
+                                            12
+                                            tháng.
+                                        </li>
+                                    </ul>
+                                    <p class="fw-bold text-danger fs-5">220.000đ/tháng</p>
+                                    <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gói 2 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100">
+                                <div class="package-header"> NETVT2T_CAM7</div>
+                                <div class="p-3">
+                                    <p class="fw-bold">Tốc độ 500Mbps đến 1Gbps + 7 ngày lưu trữ</p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li>
+                                            <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI,
+                                            HCM.
+                                        </li>
+                                        <li>
+                                            <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước
+                                            trước
+                                            12
+                                            tháng.
+                                        </li>
+                                    </ul>
+                                    <p class="fw-bold text-danger fs-5">280.000đ/tháng</p>
+                                    <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gói 3 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100">
+                                <div class="package-header"> MESHVT1T_CAM7</div>
+                                <div class="p-3">
+                                    <p class="fw-bold">Tốc độ 350Mbps + 7 ngày lưu trữ</p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li>
+                                            <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI,
+                                            HCM.
+                                        </li>
+                                        <li>
+                                            <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước
+                                            trước
+                                            12
+                                            tháng.
+                                        </li>
+
+                                    </ul>
+                                    <p class="fw-bold text-danger fs-5">250.000đ/tháng</p>
+                                    <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Gói 4 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100">
+                                <div class="package-header">MESHVT2T_CAM7</div>
+                                <div class="p-3">
+                                    <p class="fw-bold">Tốc độ 500Mbps đến 1Gbps + 7 ngày lưu trữ</p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li>
+                                            <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI,
+                                            HCM.
+                                        </li>
+                                        <li>
+                                            <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước
+                                            trước
+                                            12
+                                            tháng.
+                                        </li>
+
+                                    </ul>
+                                    <p class="fw-bold text-danger fs-5">285.000đ/tháng</p>
+                                    <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Gói 5 -->
+                        <div class="col">
+                            <div class="bg-white package-card h-100">
+                                <div class="package-header">MESHVT3T_CAM7</div>
+                                <div class="p-3">
+                                    <p class="fw-bold">Tốc độ 500Mbps đến 1Gbps + 7 ngày lưu trữ</p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li>
+                                            <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI,
+                                            HCM.
+                                        </li>
+                                        <li>
+                                            <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước
+                                            trước
+                                            12
+                                            tháng.
+                                        </li>
+
+                                    </ul>
+                                    <p class="fw-bold text-danger fs-5">339.000đ/tháng</p>
+                                    <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-white package-card h-100">
+                                <div class="package-header">MESHVT3T_CAM7</div>
+                                <div class="p-3">
+                                    <p class="fw-bold">Tốc độ 500Mbps đến 1Gbps + 7 ngày lưu trữ</p>
+                                    <ul class="list-unstyled small mb-4">
+                                        <li>
+                                            <p class="bi bi-geo-alt text-danger me-2"></p>Áp dụng tại Nội thành HNI,
+                                            HCM.
+                                        </li>
+                                        <li>
+                                            <p class="bi bi-gift text-danger me-2"></p>Tặng 1 tháng cước khi đóng cước
+                                            trước
+                                            12
+                                            tháng.
+                                        </li>
+
+                                    </ul>
+                                    <p class="fw-bold text-danger fs-5">339.000đ/tháng</p>
+                                    <a class="btn btn-outline-dark w-100" href="#">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#comboCamCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark "></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#comboCamCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark"></span>
+            </button>
+        </div>
+
+        <!--goi combo-->
+        <div id="internetCarousel" class="carousel slide d-none cam-packages" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Gói 1 -->
+                        <div class="col">
+                            <div class="bg-white rounded-2xl shadow p-6 text-center relative h-100 d-flex flex-column">
+                                <div
+                                    class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                                    NEW
+                                </div>
+                                <img src="img/camera1.jpg" alt="HC24" class="mx-auto camera-img mb-3">
+                                <h2 class="text-lg font-bold mt-2">CAMERA TRONG NHÀ HC24</h2>
+                                <p class="text-red-600 font-bold text-xl mt-2">690.000đ</p>
+
+                                <div class="text-left mt-4 border-t pt-4 overflow-auto" style="max-height: 150px;">
+                                    <h3 class="font-semibold mb-2">Thông số kỹ thuật:</h3>
+                                    <ul class="ml-2 text-sm space-y-1 list-none">
+                                        <li>Độ phân giải 2K 3Mpx (2304x1296)</li>
+                                        <li>Hỗ trợ thẻ nhớ lên đến 256GB</li>
+                                        <li>Hỗ trợ hồng ngoại lên tới khoảng cách 10m</li>
+                                        <li>Tính năng đàm thoại 02 chiều (2-way talking)</li>
+                                        <li>Góc nhìn siêu rộng 120°</li>
+                                        <li>Kết nối Wi-Fi tiện lợi</li>
+                                        <li>Tương thích app điện thoại</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gói 2 -->
+                        <div class="col">
+                            <div class="bg-white rounded-2xl shadow p-6 text-center relative h-100 d-flex flex-column">
+                                <div
+                                    class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                                    NEW
+                                </div>
+                                <img src="img/camera1.jpg" alt="HC24" class="mx-auto camera-img mb-3">
+                                <h2 class="text-lg font-bold mt-2">CAMERA TRONG NHÀ HC24</h2>
+                                <p class="text-red-600 font-bold text-xl mt-2">690.000đ</p>
+
+                                <div class="text-left mt-4 border-t pt-4 overflow-auto" style="max-height: 150px;">
+                                    <h3 class="font-semibold mb-2">Thông số kỹ thuật:</h3>
+                                    <ul class="ml-2 text-sm space-y-1 list-none">
+                                        <li>Độ phân giải 2K 3Mpx (2304x1296)</li>
+                                        <li>Hỗ trợ thẻ nhớ lên đến 256GB</li>
+                                        <li>Hỗ trợ hồng ngoại lên tới khoảng cách 10m</li>
+                                        <li>Tính năng đàm thoại 02 chiều (2-way talking)</li>
+                                        <li>Góc nhìn siêu rộng 120°</li>
+                                        <li>Kết nối Wi-Fi tiện lợi</li>
+                                        <li>Tương thích app điện thoại</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gói 3 -->
+                        <div class="col">
+                            <div class="bg-white rounded-2xl shadow p-6 text-center relative h-100 d-flex flex-column">
+                                <div
+                                    class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                                    NEW
+                                </div>
+                                <img src="img/camera1.jpg" alt="HC24" class="mx-auto camera-img mb-3">
+                                <h2 class="text-lg font-bold mt-2">CAMERA TRONG NHÀ HC24</h2>
+                                <p class="text-red-600 font-bold text-xl mt-2">690.000đ</p>
+
+                                <div class="text-left mt-4 border-t pt-4 overflow-auto" style="max-height: 150px;">
+                                    <h3 class="font-semibold mb-2">Thông số kỹ thuật:</h3>
+                                    <ul class="ml-2 text-sm space-y-1 list-none">
+                                        <li>Độ phân giải 2K 3Mpx (2304x1296)</li>
+                                        <li>Hỗ trợ thẻ nhớ lên đến 256GB</li>
+                                        <li>Hỗ trợ hồng ngoại lên tới khoảng cách 10m</li>
+                                        <li>Tính năng đàm thoại 02 chiều (2-way talking)</li>
+                                        <li>Góc nhìn siêu rộng 120°</li>
+                                        <li>Kết nối Wi-Fi tiện lợi</li>
+                                        <li>Tương thích app điện thoại</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <!-- Gói 4 -->
+                        <div class="col">
+                            <div class="bg-white rounded-2xl shadow p-6 text-center relative h-100 d-flex flex-column">
+                                <div
+                                    class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                                    NEW
+                                </div>
+                                <img src="img/camera1.jpg" alt="HC24" class="mx-auto camera-img mb-3">
+                                <h2 class="text-lg font-bold mt-2">CAMERA TRONG NHÀ HC24</h2>
+                                <p class="text-red-600 font-bold text-xl mt-2">690.000đ</p>
+
+                                <div class="text-left mt-4 border-t pt-4 overflow-auto" style="max-height: 150px;">
+                                    <h3 class="font-semibold mb-2">Thông số kỹ thuật:</h3>
+                                    <ul class="ml-2 text-sm space-y-1 list-none">
+                                        <li>Độ phân giải 2K 3Mpx (2304x1296)</li>
+                                        <li>Hỗ trợ thẻ nhớ lên đến 256GB</li>
+                                        <li>Hỗ trợ hồng ngoại lên tới khoảng cách 10m</li>
+                                        <li>Tính năng đàm thoại 02 chiều (2-way talking)</li>
+                                        <li>Góc nhìn siêu rộng 120°</li>
+                                        <li>Kết nối Wi-Fi tiện lợi</li>
+                                        <li>Tương thích app điện thoại</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Gói 5 -->
+                        <div class="col">
+                            <div class="bg-white rounded-2xl shadow p-6 text-center relative h-100 d-flex flex-column">
+                                <div
+                                    class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                                    NEW
+                                </div>
+                                <img src="img/camera1.jpg" alt="HC24" class="mx-auto camera-img mb-3">
+                                <h2 class="text-lg font-bold mt-2">CAMERA TRONG NHÀ HC24</h2>
+                                <p class="text-red-600 font-bold text-xl mt-2">690.000đ</p>
+
+                                <div class="text-left mt-4 border-t pt-4 overflow-auto" style="max-height: 150px;">
+                                    <h3 class="font-semibold mb-2">Thông số kỹ thuật:</h3>
+                                    <ul class="ml-2 text-sm space-y-1 list-none">
+                                        <li>Độ phân giải 2K 3Mpx (2304x1296)</li>
+                                        <li>Hỗ trợ thẻ nhớ lên đến 256GB</li>
+                                        <li>Hỗ trợ hồng ngoại lên tới khoảng cách 10m</li>
+                                        <li>Tính năng đàm thoại 02 chiều (2-way talking)</li>
+                                        <li>Góc nhìn siêu rộng 120°</li>
+                                        <li>Kết nối Wi-Fi tiện lợi</li>
+                                        <li>Tương thích app điện thoại</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gói 6 -->
+                        <div class="col">
+                            <div class="bg-white rounded-2xl shadow p-6 text-center relative h-100 d-flex flex-column">
+                                <div
+                                    class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-1">
+                                    NEW
+                                </div>
+                                <img src="img/camera1.jpg" alt="HC24" class="mx-auto camera-img mb-3">
+                                <h2 class="text-lg font-bold mt-2">CAMERA TRONG NHÀ HC24</h2>
+                                <p class="text-red-600 font-bold text-xl mt-2">690.000đ</p>
+                                <h3 class="font-semibold mb-2">Thông số kỹ thuật:</h3>
+                                <div class="text-left mt-4 border-t pt-4 overflow-auto" style="max-height: 150px;">
+
+                                    <ul class="ml-2 text-sm space-y-1 list-none">
+                                        <li>Độ phân giải 2K 3Mpx (2304x1296)</li>
+                                        <li>Hỗ trợ thẻ nhớ lên đến 256GB</li>
+                                        <li>Hỗ trợ hồng ngoại lên tới khoảng cách 10m</li>
+                                        <li>Tính năng đàm thoại 02 chiều (2-way talking)</li>
+                                        <li>Góc nhìn siêu rộng 120°</li>
+                                        <li>Kết nối Wi-Fi tiện lợi</li>
+                                        <li>Tương thích app điện thoại</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#internetCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#internetCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark"></span>
+            </button>
+            <div class="carousel-indicators mt-3">
+                <button type="button" data-bs-target="#internetCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#internetCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!--footer-->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container mx-auto px-4" style="max-width: 1140px;">
+            <div class="row align-items-start">
+                <!-- Giới thiệu -->
+                <div class="col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold text-info">Giới Thiệu</h5>
+                    <p class="text-light text-justify" style="line-height: 1.8;">
+                        Gói cước Viettel - Cổng đăng ký các gói 4G, 5G nhanh chóng, tiện lợi. Truy cập dễ dàng, hỗ
+                        trợ
+                        khách hàng 24/7, mang lại trải nghiệm kết nối tốt nhất cho bạn.
+                    </p>
+                </div>
+
+                <!-- Liên hệ -->
+                <div class="col-md-6 mb-4">
+                    <h5 class="text-uppercase fw-bold text-info">Liên Hệ</h5>
+                    <p class="text-light text-justify" style="line-height: 1.8;">
+                        210 Trần Phú, Cái Khế, Ninh Kiều, Cần Thơ
+                    </p>
+                    <p class="text-light" style="line-height: 1.8;">
+                        SÐT: 086.5693.959
+                    </p>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between text-center text-md-start pt-2">
+                <div class="mb-2 mb-md-0">
+                    © 2025 <span class="text-danger">Khoibh@viettelpost.com.vn</span> - All Rights Reserved
+                </div>
+                <div>
+                    Tập Đoàn Công Nghiệp - Viễn Thông Quân Đội Viettel
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".tab-button");
+            const carousel = document.querySelector("#packageCarousel");
+            const tvPackages = document.querySelector(".tv-packages");
+            const comboPackages = document.querySelector(".combo-packages");
+
+            function hideAll() {
+                carousel.classList.add("d-none");
+                tvPackages.classList.add("d-none");
+                if (comboPackages) {
+                    comboPackages.classList.add("d-none");
+                }
+            }
+
+            // Reset active class cho nút
+            function resetActiveButtons() {
+                buttons.forEach(btn => btn.classList.remove("active"));
+            }
+
+            // Lắng nghe sự kiện click
+            buttons.forEach((btn, index) => {
+                btn.addEventListener("click", function () {
+                    hideAll();
+                    resetActiveButtons();
+                    btn.classList.add("active");
+
+                    // Hiện nhóm tương ứng
+                    switch (index) {
+                        case 0: // Internet
+                            carousel.classList.remove("d-none");
+                            break;
+                        case 1: // Truyền hình
+                            tvPackages.classList.remove("d-none");
+                            break;
+                        case 2: // Combo
+                            if (comboPackages) {
+                                comboPackages.classList.remove("d-none");
+                            }
+                            break;
+                    }
+                });
+            });
+        });
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabButtons = document.querySelectorAll(".camera-tab-button");
+            const cameraCarousel = document.getElementById("cameraCarousel");
+            const internetCarousel = document.getElementById("internetCarousel");
+            const comboCamCarousel = document.getElementById("comboCamCarousel");
+
+            tabButtons.forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    tabButtons.forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+
+                    cameraCarousel.classList.add("d-none");
+                    internetCarousel.classList.add("d-none");
+                    comboCamCarousel.classList.add("d-none");
+
+                    if (index === 0) {
+                        cameraCarousel.classList.remove("d-none");
+                    } else if (index === 1) {
+                        comboCamCarousel.classList.remove("d-none");
+                    } else if (index === 2) {
+                        internetCarousel.classList.remove("d-none");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
