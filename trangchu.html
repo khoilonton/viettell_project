@@ -20,45 +20,50 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger shadow-sm px-4 position-relative">
-        <div class="container-fluid">
-            <!-- Logo trái -->
-            <a class="navbar-brand" href="#">
-                <img src="img/logo (1).png" alt="Viettel" height="40">
-            </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-danger shadow-sm px-4">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="img/logo (1).png" alt="Viettel" height="40">
+    </a>
 
-            <!-- Menu chính giữa -->
-            <div class="collapse navbar-collapse justify-content-center position-absolute top-50 start-50 translate-middle-x"
-                id="mainMenu">
-                <ul class="navbar-nav d-flex gap-5 mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link text-white fw-bold" href="trangchu.html">Trang Chủ</a></li>
-                    <li class="nav-item"><a class="nav-link text-white fw-bold" href="inter_tv_cam.html">Internet -
-                            Truyền hình</a></li>
-                    <li class="nav-item"><a class="nav-link text-white fw-bold" href="camera.html">Camera</a></li>
-                </ul>
-            </div>
+    <!-- Nút menu toggle (mobile) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <!-- Phần bên phải -->
-            <div
-                class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-2 ms-auto mt-3 mt-lg-0">
-                <div class="input-group" style="max-width: 220px;">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm...">
-                    <span class="input-group-text"><i class="fa fa-search"></i></span>
-                </div>
-                <a href="#" class="btn btn-light text-danger fw-bold rounded-pill px-4" data-bs-toggle="modal"
-                    data-bs-target="#loginModal">
-                    ĐĂNG NHẬP
-                </a>
-            </div>
+    <!-- Menu chính giữa (trung tâm) -->
+    <div class="collapse navbar-collapse justify-content-center" id="mainMenu">
+      <ul class="navbar-nav gap-4">
+        <li class="nav-item"><a class="nav-link text-white fw-bold" href="trangchu.html">Trang Chủ</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-bold" href="inter_tv_cam.html">Internet - Truyền hình</a></li>
+        <li class="nav-item"><a class="nav-link text-white fw-bold" href="camera.html">Camera</a></li>
+      </ul>
+    </div>
 
-            <!-- Nút menu responsive -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </nav>
+    <!-- Thanh tìm kiếm và nút đăng nhập (phải) -->
+    <div class="d-none d-lg-flex align-items-center gap-2">
+      <div class="input-group" style="max-width: 220px;">
+        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+      </div>
+      <a href="#" class="btn btn-light text-danger fw-bold rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#loginModal">
+        ĐĂNG NHẬP
+      </a>
+    </div>
+  </div>
 
-
+  <!-- Tìm kiếm và đăng nhập cho mobile -->
+  <div class="d-lg-none p-3">
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Tìm kiếm...">
+      <span class="input-group-text"><i class="fa fa-search"></i></span>
+    </div>
+    <a href="#" class="btn btn-light text-danger fw-bold rounded-pill w-100" data-bs-toggle="modal" data-bs-target="#loginModal">
+      ĐĂNG NHẬP
+    </a>
+  </div>
+</nav>
 
 
 
